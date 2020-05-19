@@ -1,6 +1,6 @@
 {
   "name": "com.jichaels.core",
-  "version": "0.1.1",
+  "version": "0.1.1-preview",
   "displayName": "Jichaels Core",
   "description": "Code base for my packages.\nMost packages requires Odin Inspector in order to work.\nhttps://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041",
   "unity": "2019.3",
@@ -9,7 +9,7 @@
     "email": "Jichael38@hotmail.fr"
   },
   "dependencies": {
-    "com.unity.textmeshpro": "3.0.0-preview.7"
+    "com.unity.textmeshpro": "3.0.0-preview.13"
   },
   "samples": [
     {
