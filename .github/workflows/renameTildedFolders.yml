@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |          
+      - run: |
+        git checkout master
         git config --global user.name 'github-bot'
         git config --global user.email 'github-bot@users.noreply.github.com'
         if [[ -d "Samples" ]]; then
