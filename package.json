@@ -1,0 +1,31 @@
+{
+  "name": "com.jichaels.core",
+  "version": "0.1.1",
+  "displayName": "Jichaels Core",
+  "description": "Code base for my packages.\nMost packages requires Odin Inspector in order to work.\nhttps://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041",
+  "unity": "2019.3",
+  "author": {
+    "name": "Jichaels",
+    "email": "Jichael38@hotmail.fr"
+  },
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.0-preview.7"
+  },
+  "samples": [
+    {
+      "displayName": "Warning Remover",
+      "description": "Remove useless CS0649 warning",
+      "path": "Samples~/RemoveWarning"
+    },
+    {
+      "displayName": "Pooling Example",
+      "description": "Simple scene to show pooling usage",
+      "path": "Samples~/PoolingExample"
+    },
+    {
+      "displayName": "Managers Hierarchy",
+      "description": "Hierarchy of the different managers, the ones that are not in Jichaels.Core needs to be added the corresponding scripts",
+      "path": "Samples~/ManagersHierarchy"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+    "name": "Jichaels.Core.Editor",
+    "references": [
+        "GUID:b80689c80dec70b45ab289e994177be8"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
