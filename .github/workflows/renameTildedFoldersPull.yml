@@ -1,0 +1,14 @@
+name: Rename tilded folders
+on:
+  pull:
+    branches:
+    - master
+
+jobs:
+  rename_samples:
+    name: Create branches
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+            echo "pull"
