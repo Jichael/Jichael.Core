@@ -1,6 +1,6 @@
 name: Rename tilded folders
 on:
-  pull:
+  pull_request:
     branches:
     - master
 
