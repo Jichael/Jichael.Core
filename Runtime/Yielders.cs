@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Jichaels.Core
+namespace CustomPackages.Silicom.Core.Runtime
 {
 
     public static class Yielders

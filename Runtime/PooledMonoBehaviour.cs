@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Jichaels.Core
+namespace CustomPackages.Silicom.Core.Runtime
 {
 
     public class PooledMonoBehaviour : MonoBehaviour

@@ -1,4 +1,4 @@
-﻿using Jichaels.Core;
+﻿using CustomPackages.Silicom.Core.Runtime;
 using UnityEngine;
 
 public class ExemplePooledObject : PooledMonoBehaviour

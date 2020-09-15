@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Jichaels.Core
+namespace CustomPackages.Silicom.Core.Runtime
 {
     public class Pool : MonoBehaviour
     {

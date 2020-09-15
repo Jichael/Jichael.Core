@@ -3,7 +3,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Jichaels.Core.Editor
+namespace CustomPackages.Silicom.Core.Editor.Tools
 {
     
     [InitializeOnLoad]

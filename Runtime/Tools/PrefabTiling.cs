@@ -1,10 +1,10 @@
 ﻿#if UNITY_EDITOR
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
-using Sirenix.OdinInspector;
 
-namespace Jichaels.Core
+namespace CustomPackages.Silicom.Core.Runtime.Tools
 {
     public class PrefabTiling : MonoBehaviour
     {

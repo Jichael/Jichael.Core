@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Jichaels.Core
+namespace CustomPackages.Silicom.Core.Runtime
 {
     public class SceneLoader : MonoBehaviour
     {

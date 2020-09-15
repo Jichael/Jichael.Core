@@ -3,9 +3,9 @@ using UnityEditor;
 using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
-namespace Jichaels.Core.Editor
+namespace CustomPackages.Silicom.Core.Editor.Tools
 {
-    [InitializeOnLoadAttribute]
+    [InitializeOnLoad]
     public class DisableEditorShortcutsOnPlay
     {
         private const string MenuName = "Tools/Shortcuts/Switch to EmptyProfil in PlayMode";

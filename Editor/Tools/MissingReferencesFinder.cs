@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Jichaels.Core.Editor
+namespace CustomPackages.Silicom.Core.Editor.Tools
 {
     public static class MissingReferencesFinder
     {
