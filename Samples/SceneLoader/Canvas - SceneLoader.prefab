@@ -151,7 +151,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 823
+    m_Bits: 55
 --- !u!1 &3119786964551198382
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,8 +369,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0%
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5c70ddacabedb4844b70d8fc5b5457c3, type: 2}
-  m_sharedMaterial: {fileID: 7027394657850299954, guid: 5c70ddacabedb4844b70d8fc5b5457c3, type: 2}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
