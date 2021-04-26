@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,58 +12,58 @@ namespace CustomPackages.Silicom.Core.Runtime
         public static SceneLoader Instance { get; private set; }
 
         [SerializeField] private GameObject canvas;
-
         [SerializeField] private Image fadeImage;
-
-        [SerializeField] private GameObject progressBar;
-        [SerializeField] private Image progressImage;
-        [SerializeField] private TextMeshProUGUI progressText;
+        [SerializeField] private GameObject progressAnimation;
+        [SerializeField] private Transform progressCircle;
+        [SerializeField] private GameObject loadText;
+        
 
         [SerializeField, Range(0.01f, 4)] private float fadeSpeed = 2;
+        [SerializeField] private float circleSpeed = -400f;
+
+        private bool _animate;
 
         private void Awake()
         {
             Instance = this;
+            canvas.SetActive(false);
         }
 
-        public void LoadScene(int buildIndex, bool fadeIn, bool fadeOut, bool showProgressBar)
+        public void LoadScene(int buildIndex, bool fadeIn, bool fadeOut, bool showProgressCircle, bool showText, float minLoadTime)
         {
-            StartCoroutine(LoadSceneCo(buildIndex, fadeIn, fadeOut, showProgressBar));
+            StartCoroutine(LoadSceneCo(buildIndex, fadeIn, fadeOut, showProgressCircle, showText, minLoadTime));
         }
 
-        public void LoadScene(string sceneName, bool fadeIn, bool fadeOut, bool showProgressBar)
+        public void LoadScene(string sceneName, bool fadeIn, bool fadeOut, bool showProgressCircle, bool showText, float minLoadTime)
         {
-            LoadScene(SceneUtility.GetBuildIndexByScenePath(sceneName), fadeIn, fadeOut, showProgressBar);
+            LoadScene(SceneUtility.GetBuildIndexByScenePath(sceneName), fadeIn, fadeOut, showProgressCircle, showText, minLoadTime);
         }
 
-        private IEnumerator LoadSceneCo(int buildIndex, bool fadeIn, bool fadeOut, bool showProgressBar)
+        private IEnumerator LoadSceneCo(int buildIndex, bool fadeIn, bool fadeOut, bool showProgressCircle, bool showText, float minLoadTime)
         {
-
             Color fadeColor = fadeImage.color;
-            fadeColor.a = 0;
+            fadeColor.a = fadeOut && !fadeIn ? 1 : 0;
             fadeImage.color = fadeColor;
             
             canvas.SetActive(true);
             
-            if (fadeIn) yield return StartCoroutine(FadeImageCo(0, 1));
             
-            if (showProgressBar) progressBar.SetActive(true);
+            if (fadeIn) yield return StartCoroutine(FadeImageCo(0, 1));
 
+            if (showProgressCircle) StartCoroutine(CircleAnimationCo());
+            loadText.SetActive(showText);
+            
             AsyncOperation op = SceneManager.LoadSceneAsync(buildIndex);
-
-            while (!op.isDone)
+            
+            float fakeTimer = 0;
+            while (!op.isDone || fakeTimer < minLoadTime)
             {
-                if (showProgressBar)
-                {
-                    float loadProgress = op.progress / 0.9f;
-                    progressText.text = $"{((int) (loadProgress * 100f)).ToString()} %";
-                    progressImage.fillAmount = loadProgress;
-                }
-
+                fakeTimer += Time.deltaTime;
                 yield return Yielders.EndOfFrame;
             }
 
-            progressBar.SetActive(false);
+            loadText.SetActive(false);
+            if (showProgressCircle) _animate = false;
 
             if (fadeOut) yield return StartCoroutine(FadeImageCo(1, 0));
 
@@ -86,6 +87,18 @@ namespace CustomPackages.Silicom.Core.Runtime
 
             fadeColor.a = end;
             fadeImage.color = fadeColor;
+        }
+
+        private IEnumerator CircleAnimationCo()
+        {
+            progressAnimation.SetActive(true);
+            _animate = true;
+            while (_animate)
+            {
+                progressCircle.Rotate(0, 0, circleSpeed * Time.deltaTime);
+                yield return Yielders.EndOfFrame;
+            }
+            progressAnimation.SetActive(false);
         }
     }
 }
